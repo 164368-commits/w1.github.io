@@ -1,24 +1,25 @@
 ```html
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Blue Portfolio</title>
+<title>Ronnaphop Portfolio</title>
 
 <style>
 
 /* =========================
-   พื้นฐาน
+   RESET
 ========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, "Tahoma", sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 html{
@@ -26,412 +27,630 @@ html{
 }
 
 body{
-    background:#eefaff;
-    color:#16445c;
+    background:#f4fcff;
+    color:#23495a;
 }
 
 
 /* =========================
-   เมนู
+   SIDE MENU
 ========================= */
 
-nav{
+.menu{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:15px 20px;
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(10px);
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:65px;
+
+    background:rgba(255,255,255,.9);
+    border-radius:35px;
+
+    padding:15px 8px;
+
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+
+    box-shadow:0 10px 30px rgba(0,120,180,.18);
+
     z-index:1000;
-    box-shadow:0 3px 15px rgba(0,100,160,0.15);
 }
 
-nav a{
-    text-decoration:none;
-    color:#1676a8;
-    padding:10px 20px;
-    border-radius:25px;
-    font-weight:bold;
-    transition:0.3s;
-}
+.menu a{
+    width:45px;
+    height:45px;
 
-nav a:hover{
-    background:#42bdf5;
-    color:white;
-}
-
-
-/* =========================
-   หน้าแรก
-========================= */
-
-header{
-    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:100px 20px 50px;
+
+    text-decoration:none;
+
+    background:#e1f7ff;
+    color:#1489b8;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+    font-size:18px;
+}
+
+.menu a:hover{
+    background:#18aee0;
+    color:white;
+    transform:scale(1.1);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 10%;
 
     background:
-        linear-gradient(135deg,
-        rgba(255,255,255,0.85),
-        rgba(120,210,255,0.75));
+    radial-gradient(circle at 15% 20%,#bdefff 0,transparent 30%),
+    radial-gradient(circle at 90% 80%,#8cddf8 0,transparent 30%),
+    linear-gradient(135deg,#f5fdff,#d5f5ff);
 
     position:relative;
     overflow:hidden;
 }
 
 
-/* วงกลมตกแต่ง */
+/* เส้นตกแต่ง */
 
-header::before{
+.hero::before{
     content:"";
+
     position:absolute;
-    width:350px;
-    height:350px;
-    background:rgba(255,255,255,0.35);
+
+    width:500px;
+    height:500px;
+
+    border:2px solid rgba(30,170,220,.15);
+
     border-radius:50%;
-    top:-120px;
-    left:-100px;
+
+    right:-200px;
+    top:-150px;
 }
 
-header::after{
+.hero::after{
     content:"";
+
     position:absolute;
+
     width:300px;
     height:300px;
-    background:rgba(0,150,220,0.12);
+
+    border:2px solid rgba(30,170,220,.12);
+
     border-radius:50%;
+
+    left:-130px;
     bottom:-100px;
-    right:-80px;
 }
 
 
-/* กล่องหน้าแรก */
+/* กล่อง Hero */
 
-.hero{
+.hero-content{
+    max-width:1100px;
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
     position:relative;
     z-index:2;
 }
 
 
-/* รูปโปรไฟล์ */
+/* ข้อความ */
 
-.profile{
-    width:210px;
-    height:210px;
-    object-fit:cover;
-    border-radius:50%;
-    border:8px solid white;
-    box-shadow:0 10px 30px rgba(0,90,140,0.25);
+.hero-text small{
+    color:#1ca2d0;
+
+    font-size:16px;
+
+    letter-spacing:3px;
 }
 
+.hero-text h1{
+    font-size:65px;
 
-/* ชื่อ */
+    color:#087fae;
 
-h1{
-    font-size:48px;
-    color:#087db5;
-    margin:25px 0 10px;
+    margin:15px 0;
 }
 
-.hero p{
-    font-size:21px;
-    color:#35677d;
+.hero-text h1 span{
+    color:#31b9e8;
+}
+
+.hero-text p{
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#527684;
 }
 
 
 /* ปุ่ม */
 
-.main-btn{
+.hero-btn{
     display:inline-block;
-    margin-top:25px;
-    padding:14px 35px;
-    border-radius:30px;
-    text-decoration:none;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    background:#139fce;
+
     color:white;
-    background:linear-gradient(90deg,#159bd4,#42c8ff);
-    font-weight:bold;
-    box-shadow:0 8px 20px rgba(0,130,190,0.25);
-    transition:0.3s;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    box-shadow:0 8px 20px rgba(0,150,200,.25);
+
+    transition:.3s;
 }
 
-.main-btn:hover{
+.hero-btn:hover{
+    background:#087fae;
+
     transform:translateY(-4px);
-    box-shadow:0 12px 25px rgba(0,130,190,0.35);
-}
-
-
-/* =========================
-   Section
-========================= */
-
-section{
-    min-height:80vh;
-    padding:100px 8%;
-}
-
-h2{
-    text-align:center;
-    font-size:35px;
-    color:#087db5;
-    margin-bottom:40px;
-}
-
-.subtitle{
-    text-align:center;
-    margin-top:-25px;
-    margin-bottom:30px;
-    color:#6b8998;
-}
-
-
-/* =========================
-   เกี่ยวกับฉัน
-========================= */
-
-.about-box{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,110,170,0.12);
-    border-left:7px solid #39bdf5;
-    line-height:2;
-    font-size:18px;
-}
-
-
-/* =========================
-   ผลงาน
-========================= */
-
-#work{
-    background:#e5f7ff;
-}
-
-.gallery{
-    max-width:1100px;
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
 }
 
 
 /* รูป */
 
-.card{
-    background:white;
-    padding:10px;
-    border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,100,150,0.13);
-    overflow:hidden;
-    transition:0.3s;
+.hero-photo{
+    display:flex;
+    justify-content:center;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 30px rgba(0,100,150,0.2);
-}
+.hero-photo img{
+    width:330px;
+    height:400px;
 
-.card img{
-    width:100%;
-    height:250px;
     object-fit:cover;
-    border-radius:15px;
-    cursor:pointer;
+
+    border-radius:160px 160px 30px 30px;
+
+    border:12px solid white;
+
+    box-shadow:
+    0 20px 50px rgba(0,120,170,.25);
 }
 
 
 /* =========================
-   ติดต่อ
+   SECTION
 ========================= */
 
-.contact-box{
-    max-width:650px;
-    margin:auto;
-    background:white;
-    padding:35px;
-    border-radius:25px;
-    text-align:center;
-    line-height:2.2;
-    box-shadow:0 10px 25px rgba(0,100,150,0.12);
+section{
+    padding:110px 10%;
+
+    min-height:80vh;
 }
 
-.contact-box span{
-    color:#0788c4;
-    font-weight:bold;
+.section-title{
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.section-title small{
+    color:#23a8d7;
+
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    color:#087fae;
+
+    font-size:40px;
+
+    margin-top:10px;
 }
 
 
 /* =========================
-   Footer
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+}
+
+.about-container{
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+}
+
+.about-card{
+    background:#f0fbff;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid #c8edf8;
+
+    transition:.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,130,180,.1);
+}
+
+.about-card h3{
+    color:#118eb9;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+}
+
+.about-card p{
+    line-height:1.9;
+
+    color:#587682;
+}
+
+
+/* =========================
+   SKILL
+========================= */
+
+.skills{
+    margin-top:30px;
+}
+
+.skill{
+    margin-bottom:20px;
+}
+
+.skill-title{
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:7px;
+
+    color:#477080;
+}
+
+.skill-bar{
+    width:100%;
+    height:9px;
+
+    background:#dceff5;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.skill-bar div{
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #24a9d6,
+        #75dfff
+    );
+
+    border-radius:20px;
+}
+
+.skill1{width:90%}
+.skill2{width:80%}
+.skill3{width:75%}
+
+
+/* =========================
+   WORK
+========================= */
+
+.work{
+    background:#e9f9ff;
+}
+
+.gallery{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:30px;
+}
+
+
+/* การ์ดผลงาน */
+
+.work-card{
+    background:white;
+
+    border-radius:25px;
+
+    padding:12px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,120,170,.1);
+
+    transition:.4s;
+}
+
+.work-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(0,120,170,.18);
+}
+
+.work-card img{
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    display:block;
+}
+
+
+/* หมายเลข */
+
+.number{
+    position:absolute;
+
+    top:25px;
+    left:25px;
+
+    background:#159fce;
+
+    color:white;
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(0,120,170,.3);
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:white;
+
+    text-align:center;
+}
+
+.contact-content{
+    max-width:700px;
+
+    margin:auto;
+
+    padding:50px 30px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(135deg,#e5f9ff,#f9feff);
+
+    border:1px solid #c8edf8;
+}
+
+.contact-content h3{
+    font-size:28px;
+
+    color:#087fae;
+
+    margin-bottom:20px;
+}
+
+.contact-content p{
+    line-height:2;
+
+    color:#5b7884;
+}
+
+
+/* =========================
+   FOOTER
 ========================= */
 
 footer{
-    background:#087db5;
-    color:white;
     padding:25px;
+
+    background:#087fae;
+
+    color:white;
+
     text-align:center;
 }
 
 
 /* =========================
-   Lightbox
+   LIGHTBOX
 ========================= */
 
 #lightbox{
     display:none;
 
     position:fixed;
-    top:0;
-    left:0;
 
-    width:100%;
-    height:100%;
+    inset:0;
 
-    background:rgba(5,45,65,0.94);
+    background:rgba(3,35,50,.95);
 
     justify-content:center;
+
     align-items:center;
 
     z-index:2000;
 }
 
-
-/* รูปใหญ่ */
-
 #showImage{
     max-width:80%;
-    max-height:82%;
+    max-height:80%;
 
-    object-fit:contain;
-
-    border:5px solid white;
     border-radius:20px;
 
-    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    border:5px solid white;
+
+    box-shadow:0 20px 50px black;
 }
 
 
-/* ปุ่มซ้ายขวา */
+/* ปุ่ม Lightbox */
 
-.slide-btn{
+.light-btn{
     position:absolute;
 
     width:55px;
     height:55px;
 
     border:none;
+
     border-radius:50%;
 
-    background:#38bdf5;
+    background:#22a9d7;
+
     color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.slide-btn:hover{
-    background:#087db5;
-    transform:scale(1.1);
-}
-
-.prev{
-    left:30px;
-}
-
-.next{
-    right:30px;
-}
-
-
-/* ปุ่มปิด */
-
-.close{
-    position:absolute;
-    top:25px;
-    right:30px;
-
-    background:white;
-    color:#087db5;
-
-    border:none;
-
-    width:45px;
-    height:45px;
-
-    border-radius:50%;
 
     font-size:25px;
 
     cursor:pointer;
+
+    transition:.3s;
+}
+
+.light-btn:hover{
+    background:#087fae;
+
+    transform:scale(1.1);
+}
+
+.left{
+    left:30px;
+}
+
+.right{
+    right:30px;
+}
+
+.close{
+    top:25px;
+    right:30px;
+
+    background:white;
+
+    color:#087fae;
 }
 
 
 /* =========================
-   มือถือ
+   RESPONSIVE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:800px){
 
-    nav a{
+    .menu{
+        left:50%;
+        top:15px;
+
+        transform:translateX(-50%);
+
+        width:auto;
+
+        flex-direction:row;
+
+        border-radius:30px;
+
         padding:8px 12px;
-        font-size:13px;
     }
 
-    h1{
-        font-size:35px;
+    .menu a{
+        width:38px;
+        height:38px;
     }
 
-    h2{
-        font-size:29px;
+    .hero{
+        padding-top:130px;
     }
 
-    .profile{
-        width:170px;
-        height:170px;
+    .hero-content{
+        grid-template-columns:1fr;
+
+        text-align:center;
     }
 
-    section{
-        padding:90px 20px;
+    .hero-text h1{
+        font-size:45px;
     }
 
-    .about-box{
-        padding:25px;
-        font-size:16px;
+    .hero-photo img{
+        width:260px;
+        height:320px;
     }
 
-    .card img{
-        height:220px;
+    .about-container{
+        grid-template-columns:1fr;
     }
 
-    #showImage{
-        max-width:90%;
-        max-height:75%;
-    }
-
-    .prev{
-        left:10px;
-    }
-
-    .next{
-        right:10px;
+    .gallery{
+        grid-template-columns:1fr;
     }
 
 }
@@ -445,48 +664,62 @@ footer{
 
 
 <!-- =========================
-     เมนู
+     MENU
 ========================= -->
 
-<nav>
+<div class="menu">
 
-<a href="#home">🏠 หน้าแรก</a>
+<a href="#home" title="หน้าแรก">⌂</a>
 
-<a href="#about">👤 เกี่ยวกับฉัน</a>
+<a href="#about" title="เกี่ยวกับฉัน">👤</a>
 
-<a href="#work">📷 ผลงาน</a>
+<a href="#work" title="ผลงาน">▦</a>
 
-<a href="#contact">📩 ติดต่อ</a>
+<a href="#contact" title="ติดต่อ">✉</a>
 
-</nav>
+</div>
 
 
 
 <!-- =========================
-     หน้าแรก
+     HOME
 ========================= -->
 
-<header id="home">
+<header class="hero" id="home">
 
-<div class="hero">
+<div class="hero-content">
 
-<img
-class="profile"
-src="751134574_1051227694222043_2419989609353775438_n.jpg"
-alt="รูปโปรไฟล์"
->
+
+<div class="hero-text">
+
+<small>WELCOME TO MY PORTFOLIO</small>
 
 <h1>
-แฟ้มสะสมผลงาน
+Ronnaphop<br>
+<span>Phoraksa</span>
 </h1>
 
 <p>
+แฟ้มสะสมผลงานของ<br>
 รณภพ โพธิ์รักษา
 </p>
 
-<a class="main-btn" href="#work">
-✨ ดูผลงานของฉัน
+<a href="#work" class="hero-btn">
+ดูผลงาน →
 </a>
+
+</div>
+
+
+<div class="hero-photo">
+
+<img
+src="751134574_1051227694222043_2419989609353775438_n.jpg"
+alt="Ronnaphop"
+>
+
+</div>
+
 
 </div>
 
@@ -495,38 +728,128 @@ alt="รูปโปรไฟล์"
 
 
 <!-- =========================
-     เกี่ยวกับฉัน
+     ABOUT
 ========================= -->
 
-<section id="about">
+<section class="about" id="about">
 
-<h2>💙 เกี่ยวกับฉัน</h2>
+<div class="section-title">
 
-<div class="about-box">
+<small>ABOUT ME</small>
 
-<strong>ชื่อ :</strong>
-รณภพ โพธิ์รักษา
+<h2>เกี่ยวกับฉัน</h2>
 
-<br>
+</div>
 
-<strong>ระดับการศึกษา :</strong>
-มัธยมศึกษาตอนปลาย
 
-<br>
+<div class="about-container">
 
-<strong>ความสนใจ :</strong>
-ดนตรีและการสร้างสรรค์ผลงาน
 
-<br>
+<div class="about-card">
 
-<strong>ความสามารถ :</strong>
-การบรรเลงดนตรีและการทำกิจกรรมต่าง ๆ
+<h3>👋 ข้อมูลส่วนตัว</h3>
+
+<p>
+
+ชื่อ : รณภพ โพธิ์รักษา
 
 <br>
 
-<strong>เป้าหมาย :</strong>
-มุ่งมั่นพัฒนาความสามารถของตนเอง
-และศึกษาต่อในระดับมหาวิทยาลัย
+นักเรียนระดับมัธยมศึกษาตอนปลาย
+
+<br>
+
+มีความสนใจในด้านดนตรี
+และการสร้างสรรค์ผลงาน
+
+</p>
+
+</div>
+
+
+<div class="about-card">
+
+<h3>🎵 ความสนใจ</h3>
+
+<p>
+
+สนใจด้านดนตรี การบรรเลงเครื่องดนตรี
+การทำกิจกรรม และการพัฒนาทักษะ
+ของตนเองอย่างต่อเนื่อง
+
+</p>
+
+</div>
+
+
+<div class="about-card">
+
+<h3>🎯 เป้าหมาย</h3>
+
+<p>
+
+มุ่งมั่นพัฒนาความสามารถ
+เพื่อศึกษาต่อในระดับมหาวิทยาลัย
+และนำความรู้ไปต่อยอดในอนาคต
+
+</p>
+
+</div>
+
+
+<div class="about-card">
+
+<h3>⭐ ทักษะ</h3>
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="skill-title">
+<span>ดนตรี</span>
+<span>90%</span>
+</div>
+
+<div class="skill-bar">
+<div class="skill1"></div>
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-title">
+<span>การทำงาน</span>
+<span>80%</span>
+</div>
+
+<div class="skill-bar">
+<div class="skill2"></div>
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-title">
+<span>ความคิดสร้างสรรค์</span>
+<span>75%</span>
+</div>
+
+<div class="skill-bar">
+<div class="skill3"></div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -535,111 +858,122 @@ alt="รูปโปรไฟล์"
 
 
 <!-- =========================
-     ผลงาน
+     WORK
 ========================= -->
 
-<section id="work">
+<section class="work" id="work">
 
-<h2>📸 ผลงานของฉัน</h2>
+<div class="section-title">
 
-<p class="subtitle">
-คลิกที่รูปเพื่อดูภาพขนาดใหญ่
-</p>
+<small>MY WORKS</small>
+
+<h2>ผลงานของฉัน</h2>
+
+</div>
 
 
 <div class="gallery">
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">01</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0001.jpg"
 onclick="openImage(0)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">02</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0002.jpg"
 onclick="openImage(1)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">03</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0003.jpg"
 onclick="openImage(2)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">04</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0004.jpg"
 onclick="openImage(3)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">05</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0005.jpg"
 onclick="openImage(4)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">06</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0006.jpg"
 onclick="openImage(5)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">07</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0007.jpg"
 onclick="openImage(6)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">08</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0008.jpg"
 onclick="openImage(7)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">09</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0009.jpg"
 onclick="openImage(8)">
+
 </div>
 
 
-<div class="card">
+<div class="work-card">
+
+<div class="number">10</div>
+
 <img src="SWU_10090110702501A-0-D0101_1749800445651_page-0010.jpg"
 onclick="openImage(9)">
-</div>
-
 
 </div>
 
-</section>
-
-
-
-<!-- =========================
-     ติดต่อ
-========================= -->
-
-<section id="contact">
-
-<h2>📩 ติดต่อ</h2>
-
-<div class="contact-box">
-
-<p>
-<span>ชื่อ :</span>
-รณภพ โพธิ์รักษา
-</p>
-
-<p>
-<span>Facebook :</span>
-ใส่ชื่อ Facebook
-</p>
-
-<p>
-<span>Email :</span>
-ใส่อีเมลของคุณ
-</p>
 
 </div>
 
@@ -648,36 +982,79 @@ onclick="openImage(9)">
 
 
 <!-- =========================
-     Footer
+     CONTACT
 ========================= -->
+
+<section class="contact" id="contact">
+
+<div class="section-title">
+
+<small>CONTACT ME</small>
+
+<h2>ติดต่อ</h2>
+
+</div>
+
+
+<div class="contact-content">
+
+<h3>รณภพ โพธิ์รักษา</h3>
+
+<p>
+
+📘 Facebook : ใส่ชื่อ Facebook
+
+<br>
+
+📧 Email : ใส่อีเมล
+
+<br>
+
+📱 โทรศัพท์ : ใส่เบอร์โทรศัพท์
+
+</p>
+
+</div>
+
+</section>
+
+
 
 <footer>
 
-© 2026 Blue Portfolio | Ronnaphop Phoraksa
+© 2026 Ronnaphop Portfolio
 
 </footer>
 
 
 
 <!-- =========================
-     Lightbox
+     LIGHTBOX
 ========================= -->
 
 <div id="lightbox">
 
-<button class="close" onclick="closeImage()">
+
+<button class="light-btn close"
+onclick="closeImage()">
 ×
 </button>
 
-<button class="slide-btn prev" onclick="prevImage()">
+
+<button class="light-btn left"
+onclick="prevImage()">
 ❮
 </button>
 
+
 <img id="showImage">
 
-<button class="slide-btn next" onclick="nextImage()">
+
+<button class="light-btn right"
+onclick="nextImage()">
 ❯
 </button>
+
 
 </div>
 
@@ -685,9 +1062,12 @@ onclick="openImage(9)">
 
 <script>
 
-/* รายชื่อรูป 10 รูป */
 
-let images = [
+/* =========================
+   รูปทั้งหมด 10 รูป
+========================= */
+
+const images = [
 
 "SWU_10090110702501A-0-D0101_1749800445651_page-0001.jpg",
 
@@ -712,17 +1092,17 @@ let images = [
 ];
 
 
-let index = 0;
+let current = 0;
 
 
 /* เปิดรูป */
 
-function openImage(i){
+function openImage(number){
 
-    index = i;
+    current = number;
 
     document.getElementById("showImage").src =
-    images[index];
+    images[current];
 
     document.getElementById("lightbox").style.display =
     "flex";
@@ -734,14 +1114,14 @@ function openImage(i){
 
 function nextImage(){
 
-    index++;
+    current++;
 
-    if(index >= images.length){
-        index = 0;
+    if(current >= images.length){
+        current = 0;
     }
 
     document.getElementById("showImage").src =
-    images[index];
+    images[current];
 
 }
 
@@ -750,19 +1130,19 @@ function nextImage(){
 
 function prevImage(){
 
-    index--;
+    current--;
 
-    if(index < 0){
-        index = images.length - 1;
+    if(current < 0){
+        current = images.length - 1;
     }
 
     document.getElementById("showImage").src =
-    images[index];
+    images[current];
 
 }
 
 
-/* ปิดรูป */
+/* ปิด */
 
 function closeImage(){
 
@@ -772,39 +1152,34 @@ function closeImage(){
 }
 
 
-/* คลิกพื้นหลังเพื่อปิด */
+/* คลิกพื้นหลัง */
 
 document.getElementById("lightbox").onclick =
-function(e){
+function(event){
 
-    if(e.target === this){
+    if(event.target === this){
+
         closeImage();
+
     }
 
 };
 
 
-/* กด ESC เพื่อปิด */
+/* คีย์บอร์ด */
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown",function(event){
 
-    if(e.key === "Escape"){
-        closeImage();
-    }
-
-});
-
-
-/* กดลูกศรบนคีย์บอร์ด */
-
-document.addEventListener("keydown",function(e){
-
-    if(e.key === "ArrowRight"){
+    if(event.key === "ArrowRight"){
         nextImage();
     }
 
-    if(e.key === "ArrowLeft"){
+    if(event.key === "ArrowLeft"){
         prevImage();
+    }
+
+    if(event.key === "Escape"){
+        closeImage();
     }
 
 });
@@ -813,8 +1188,10 @@ document.addEventListener("keydown",function(e){
 
 
 </body>
+
 </html>
 ```
+
 
 
 
