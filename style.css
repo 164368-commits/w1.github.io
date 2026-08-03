@@ -1,37 +1,370 @@
-```css
+
 /* =========================
-   WORK - ผลงานเต็มพื้นที่
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4fcff;
+    color:#23495a;
+}
+
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.menu{
+    position:fixed;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:65px;
+
+    background:rgba(255,255,255,.9);
+    border-radius:35px;
+
+    padding:15px 8px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+
+    box-shadow:0 10px 30px rgba(0,120,180,.18);
+
+    z-index:1000;
+}
+
+.menu a{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    background:#e1f7ff;
+    color:#1489b8;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+    font-size:18px;
+}
+
+.menu a:hover{
+    background:#18aee0;
+    color:white;
+    transform:scale(1.1);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 10%;
+
+    background:
+    radial-gradient(circle at 15% 20%,#bdefff 0,transparent 30%),
+    radial-gradient(circle at 90% 80%,#8cddf8 0,transparent 30%),
+    linear-gradient(135deg,#f5fdff,#d5f5ff);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border:2px solid rgba(30,170,220,.15);
+
+    border-radius:50%;
+
+    right:-200px;
+    top:-150px;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border:2px solid rgba(30,170,220,.12);
+
+    border-radius:50%;
+
+    left:-130px;
+    bottom:-100px;
+}
+
+.hero-content{
+    max-width:1100px;
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.hero-text small{
+    color:#1ca2d0;
+
+    font-size:16px;
+
+    letter-spacing:3px;
+}
+
+.hero-text h1{
+    font-size:65px;
+
+    color:#087fae;
+
+    margin:15px 0;
+}
+
+.hero-text h1 span{
+    color:#31b9e8;
+}
+
+.hero-text p{
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#527684;
+}
+
+
+/* =========================
+   HERO BUTTON
+========================= */
+
+.hero-btn{
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    background:#139fce;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    box-shadow:0 8px 20px rgba(0,150,200,.25);
+
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#087fae;
+
+    transform:translateY(-4px);
+}
+
+
+/* =========================
+   HERO PHOTO
+========================= */
+
+.hero-photo{
+    display:flex;
+
+    justify-content:center;
+}
+
+.hero-photo img{
+    width:330px;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:160px 160px 30px 30px;
+
+    border:12px solid white;
+
+    box-shadow:
+    0 20px 50px rgba(0,120,170,.25);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:110px 5%;
+
+    min-height:80vh;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.section-title small{
+    color:#23a8d7;
+
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    color:#087fae;
+
+    font-size:40px;
+
+    margin-top:10px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+}
+
+.about-container{
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+}
+
+.about-card{
+    background:#f0fbff;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid #c8edf8;
+
+    transition:.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 15px 30px rgba(0,130,180,.1);
+}
+
+.about-card h3{
+    color:#118eb9;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+}
+
+.about-card p{
+    line-height:1.9;
+
+    color:#587682;
+}
+
+
+/* =========================
+   WORK
 ========================= */
 
 .work{
     background:#e9f9ff;
+
     padding:110px 3%;
 }
 
-/* แกลเลอรี */
+
+/* กล่องรูป */
+
 .gallery{
     width:100%;
+
     max-width:1600px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
 
     gap:30px;
 }
 
+
 /* การ์ดผลงาน */
+
 .work-card{
     width:100%;
+
     background:white;
 
     border-radius:25px;
+
     padding:12px;
 
     position:relative;
+
     overflow:hidden;
 
-    box-shadow:0 10px 25px rgba(0,120,170,.1);
+    box-shadow:
+    0 10px 25px rgba(0,120,170,.1);
 
     transition:.4s;
 }
@@ -39,14 +372,18 @@
 .work-card:hover{
     transform:translateY(-8px);
 
-    box-shadow:0 20px 35px rgba(0,120,170,.18);
+    box-shadow:
+    0 20px 35px rgba(0,120,170,.18);
 }
 
+
 /* รูปผลงาน */
+
 .work-card img{
     width:100%;
 
     height:auto;
+
     min-height:500px;
 
     object-fit:contain;
@@ -60,7 +397,9 @@
     background:#f5fcff;
 }
 
+
 /* หมายเลขรูป */
+
 .number{
     position:absolute;
 
@@ -68,12 +407,14 @@
     left:25px;
 
     background:#159fce;
+
     color:white;
 
     width:45px;
     height:45px;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -81,32 +422,257 @@
 
     font-weight:bold;
 
-    box-shadow:0 5px 15px rgba(0,120,170,.3);
+    box-shadow:
+    0 5px 15px rgba(0,120,170,.3);
 
     z-index:2;
 }
 
 
 /* =========================
-   หน้าจอเล็ก
+   CONTACT
+========================= */
+
+.contact{
+    background:white;
+
+    text-align:center;
+}
+
+.contact-content{
+    max-width:700px;
+
+    margin:auto;
+
+    padding:50px 30px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(135deg,#e5f9ff,#f9feff);
+
+    border:1px solid #c8edf8;
+}
+
+.contact-content h3{
+    font-size:28px;
+
+    color:#087fae;
+
+    margin-bottom:20px;
+}
+
+.contact-content p{
+    line-height:2;
+
+    color:#5b7884;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:25px;
+
+    background:#087fae;
+
+    color:white;
+
+    text-align:center;
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+#lightbox{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(3,35,50,.95);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:2000;
+
+    padding:30px;
+}
+
+
+/* รูปตอนกดขยาย */
+
+#showImage{
+    max-width:90vw;
+
+    max-height:90vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    border:5px solid white;
+
+    box-shadow:0 20px 50px black;
+}
+
+
+/* =========================
+   LIGHTBOX BUTTON
+========================= */
+
+.light-btn{
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#22a9d7;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:5;
+}
+
+.light-btn:hover{
+    background:#087fae;
+
+    transform:scale(1.1);
+}
+
+.left{
+    left:30px;
+}
+
+.right{
+    right:30px;
+}
+
+.close{
+    top:25px;
+
+    right:30px;
+
+    background:white;
+
+    color:#087fae;
+}
+
+
+/* =========================
+   MOBILE
 ========================= */
 
 @media(max-width:800px){
 
-    .work{
-        padding:80px 15px;
+    .menu{
+        left:50%;
+
+        top:15px;
+
+        transform:translateX(-50%);
+
+        width:auto;
+
+        flex-direction:row;
+
+        border-radius:30px;
+
+        padding:8px 12px;
     }
+
+    .menu a{
+        width:38px;
+
+        height:38px;
+    }
+
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:45px;
+    }
+
+    .hero-photo img{
+        width:260px;
+
+        height:320px;
+    }
+
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
 
     .gallery{
         grid-template-columns:1fr;
+
         gap:25px;
     }
 
+
     .work-card img{
         min-height:0;
+
         height:auto;
     }
 
+
+    #showImage{
+        max-width:85vw;
+
+        max-height:80vh;
+    }
+
+
+    .light-btn{
+        width:50px;
+
+        height:50px;
+
+        font-size:22px;
+    }
+
+    .left{
+        left:10px;
+    }
+
+    .right{
+        right:10px;
+    }
+
 }
-```
+
+
 
