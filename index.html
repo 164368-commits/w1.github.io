@@ -2,12 +2,18 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Blue Portfolio</title>
+<title>Blue Portfolio</title>
 
 <style>
+
+/* =========================
+   พื้นฐาน
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -20,439 +26,795 @@ html{
 }
 
 body{
-    background:linear-gradient(135deg,#dff6ff,#8ed8ff,#4db8ff);
-    color:#164b6b;
+    background:#eefaff;
+    color:#16445c;
 }
 
-/* ===== เมนูด้านบน ===== */
+
+/* =========================
+   เมนู
+========================= */
+
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:70px;
-    background:rgba(255,255,255,0.9);
+    padding:15px 20px;
+    background:rgba(255,255,255,0.92);
     backdrop-filter:blur(10px);
     display:flex;
     justify-content:center;
-    align-items:center;
-    gap:15px;
+    flex-wrap:wrap;
+    gap:10px;
     z-index:1000;
-    box-shadow:0 3px 15px rgba(0,100,180,0.2);
+    box-shadow:0 3px 15px rgba(0,100,160,0.15);
 }
 
-nav button{
-    border:none;
-    background:#4db8ff;
-    color:white;
-    padding:10px 18px;
+nav a{
+    text-decoration:none;
+    color:#1676a8;
+    padding:10px 20px;
     border-radius:25px;
-    cursor:pointer;
-    font-size:15px;
+    font-weight:bold;
     transition:0.3s;
 }
 
-nav button:hover{
-    background:#168fe0;
-    transform:translateY(-2px);
+nav a:hover{
+    background:#42bdf5;
+    color:white;
 }
 
-/* ===== แต่ละหน้า ===== */
-.page{
+
+/* =========================
+   หน้าแรก
+========================= */
+
+header{
     min-height:100vh;
-    padding:100px 20px 50px;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:100px 20px 50px;
+
+    background:
+        linear-gradient(135deg,
+        rgba(255,255,255,0.85),
+        rgba(120,210,255,0.75));
+
+    position:relative;
+    overflow:hidden;
 }
 
-/* ===== หน้าแรก ===== */
-.home{
-    background:linear-gradient(135deg,#e8f9ff,#9dddff,#54bfff);
+
+/* วงกลมตกแต่ง */
+
+header::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,255,255,0.35);
+    border-radius:50%;
+    top:-120px;
+    left:-100px;
 }
 
-.home h1{
-    font-size:55px;
-    color:#0878bd;
-    margin-bottom:15px;
+header::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(0,150,220,0.12);
+    border-radius:50%;
+    bottom:-100px;
+    right:-80px;
 }
 
-.home p{
-    font-size:22px;
-    margin-bottom:25px;
+
+/* กล่องหน้าแรก */
+
+.hero{
+    position:relative;
+    z-index:2;
 }
 
-.start-btn{
-    border:none;
-    background:#0878bd;
-    color:white;
+
+/* รูปโปรไฟล์ */
+
+.profile{
+    width:210px;
+    height:210px;
+    object-fit:cover;
+    border-radius:50%;
+    border:8px solid white;
+    box-shadow:0 10px 30px rgba(0,90,140,0.25);
+}
+
+
+/* ชื่อ */
+
+h1{
+    font-size:48px;
+    color:#087db5;
+    margin:25px 0 10px;
+}
+
+.hero p{
+    font-size:21px;
+    color:#35677d;
+}
+
+
+/* ปุ่ม */
+
+.main-btn{
+    display:inline-block;
+    margin-top:25px;
     padding:14px 35px;
     border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,100,180,0.3);
-    transition:0.3s;
-}
-
-.start-btn:hover{
-    background:#005b91;
-    transform:scale(1.05);
-}
-
-/* ===== รูปภาพ ===== */
-.photo-box{
-    width:min(800px,90%);
-    background:white;
-    padding:15px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,90,150,0.25);
-}
-
-.photo-box img{
-    width:100%;
-    height:450px;
-    object-fit:cover;
-    border-radius:18px;
-    display:block;
-}
-
-/* ===== ข้อความ ===== */
-.page h2{
-    font-size:38px;
-    color:#0878bd;
-    margin-bottom:20px;
-}
-
-.page p{
-    font-size:19px;
-    max-width:750px;
-    line-height:1.8;
-    margin:15px 0;
-}
-
-/* ===== ปุ่มเลื่อน ===== */
-.buttons{
-    margin-top:25px;
-    display:flex;
-    gap:15px;
-}
-
-.buttons button{
-    border:none;
-    background:#0878bd;
+    text-decoration:none;
     color:white;
-    padding:12px 25px;
-    border-radius:25px;
-    font-size:16px;
-    cursor:pointer;
+    background:linear-gradient(90deg,#159bd4,#42c8ff);
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(0,130,190,0.25);
     transition:0.3s;
 }
 
-.buttons button:hover{
-    background:#005b91;
-    transform:scale(1.05);
+.main-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(0,130,190,0.35);
 }
 
-/* ===== ปุ่มขึ้นบน ===== */
-.top-btn{
+
+/* =========================
+   Section
+========================= */
+
+section{
+    min-height:80vh;
+    padding:100px 8%;
+}
+
+h2{
+    text-align:center;
+    font-size:35px;
+    color:#087db5;
+    margin-bottom:40px;
+}
+
+.subtitle{
+    text-align:center;
+    margin-top:-25px;
+    margin-bottom:30px;
+    color:#6b8998;
+}
+
+
+/* =========================
+   เกี่ยวกับฉัน
+========================= */
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,110,170,0.12);
+    border-left:7px solid #39bdf5;
+    line-height:2;
+    font-size:18px;
+}
+
+
+/* =========================
+   ผลงาน
+========================= */
+
+#work{
+    background:#e5f7ff;
+}
+
+.gallery{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+
+/* รูป */
+
+.card{
+    background:white;
+    padding:10px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,100,150,0.13);
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,100,150,0.2);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   ติดต่อ
+========================= */
+
+.contact-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    line-height:2.2;
+    box-shadow:0 10px 25px rgba(0,100,150,0.12);
+}
+
+.contact-box span{
+    color:#0788c4;
+    font-weight:bold;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    background:#087db5;
+    color:white;
+    padding:25px;
+    text-align:center;
+}
+
+
+/* =========================
+   Lightbox
+========================= */
+
+#lightbox{
+    display:none;
+
     position:fixed;
-    right:20px;
-    bottom:20px;
-    width:50px;
-    height:50px;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(5,45,65,0.94);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:2000;
+}
+
+
+/* รูปใหญ่ */
+
+#showImage{
+    max-width:80%;
+    max-height:82%;
+
+    object-fit:contain;
+
+    border:5px solid white;
+    border-radius:20px;
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+
+/* ปุ่มซ้ายขวา */
+
+.slide-btn{
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
     border:none;
     border-radius:50%;
-    background:#0878bd;
+
+    background:#38bdf5;
     color:white;
-    font-size:22px;
+
+    font-size:28px;
+
     cursor:pointer;
-    z-index:999;
-    box-shadow:0 5px 15px rgba(0,80,150,0.3);
+
+    transition:0.3s;
 }
 
-/* ===== มือถือ ===== */
+.slide-btn:hover{
+    background:#087db5;
+    transform:scale(1.1);
+}
+
+.prev{
+    left:30px;
+}
+
+.next{
+    right:30px;
+}
+
+
+/* ปุ่มปิด */
+
+.close{
+    position:absolute;
+    top:25px;
+    right:30px;
+
+    background:white;
+    color:#087db5;
+
+    border:none;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   มือถือ
+========================= */
+
 @media(max-width:600px){
 
-    nav{
-        height:auto;
-        padding:10px;
-        flex-wrap:wrap;
-    }
-
-    nav button{
+    nav a{
         padding:8px 12px;
         font-size:13px;
     }
 
-    .home h1{
-        font-size:38px;
+    h1{
+        font-size:35px;
     }
 
-    .home p{
-        font-size:18px;
+    h2{
+        font-size:29px;
     }
 
-    .page h2{
-        font-size:30px;
+    .profile{
+        width:170px;
+        height:170px;
     }
 
-    .photo-box img{
-        height:300px;
+    section{
+        padding:90px 20px;
     }
+
+    .about-box{
+        padding:25px;
+        font-size:16px;
+    }
+
+    .card img{
+        height:220px;
+    }
+
+    #showImage{
+        max-width:90%;
+        max-height:75%;
+    }
+
+    .prev{
+        left:10px;
+    }
+
+    .next{
+        right:10px;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ===== เมนู ===== -->
+
+<!-- =========================
+     เมนู
+========================= -->
+
 <nav>
-    <button onclick="goToPage(0)">หน้าแรก</button>
-    <button onclick="goToPage(1)">ผลงาน 1</button>
-    <button onclick="goToPage(2)">ผลงาน 2</button>
-    <button onclick="goToPage(3)">ผลงาน 3</button>
-    <button onclick="goToPage(4)">ผลงาน 4</button>
-    <button onclick="goToPage(5)">ผลงาน 5</button>
-    <button onclick="goToPage(6)">ผลงาน 6</button>
-    <button onclick="goToPage(7)">ผลงาน 7</button>
-    <button onclick="goToPage(8)">ผลงาน 8</button>
-    <button onclick="goToPage(9)">ผลงาน 9</button>
-    <button onclick="goToPage(10)">ผลงาน 10</button>
+
+<a href="#home">🏠 หน้าแรก</a>
+
+<a href="#about">👤 เกี่ยวกับฉัน</a>
+
+<a href="#work">📷 ผลงาน</a>
+
+<a href="#contact">📩 ติดต่อ</a>
+
 </nav>
 
 
-<!-- ===== หน้าแรก ===== -->
-<section class="page home" id="page0">
 
-    <h1>💙 My Portfolio</h1>
+<!-- =========================
+     หน้าแรก
+========================= -->
 
-    <p>
-        ยินดีต้อนรับเข้าสู่ Portfolio ของฉัน
-    </p>
+<header id="home">
 
-    <button class="start-btn" onclick="goToPage(1)">
-        ✨ เข้าสู่ Portfolio
-    </button>
+<div class="hero">
 
-</section>
+<img
+class="profile"
+src="751134574_1051227694222043_2419989609353775438_n.jpg"
+alt="รูปโปรไฟล์"
+>
 
+<h1>
+แฟ้มสะสมผลงาน
+</h1>
 
-<!-- ===== หน้า 1 ===== -->
-<section class="page" id="page1">
+<p>
+รณภพ โพธิ์รักษา
+</p>
 
-    <h2>📸 ผลงานที่ 1</h2>
+<a class="main-btn" href="#work">
+✨ ดูผลงานของฉัน
+</a>
 
-    <div class="photo-box">
-        <img src="image1.jpg">
-    </div>
+</div>
 
-    <p>
-        ใส่รายละเอียดเกี่ยวกับผลงานที่ 1 ของคุณตรงนี้
-    </p>
-
-    <div class="buttons">
-        <button onclick="goToPage(0)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(2)">ถัดไป ➡</button>
-    </div>
-
-</section>
+</header>
 
 
-<!-- ===== หน้า 2 ===== -->
-<section class="page" id="page2">
 
-    <h2>📸 ผลงานที่ 2</h2>
+<!-- =========================
+     เกี่ยวกับฉัน
+========================= -->
 
-    <div class="photo-box">
-        <img src="image2.jpg">
-    </div>
+<section id="about">
 
-    <p>รายละเอียดผลงานที่ 2</p>
+<h2>💙 เกี่ยวกับฉัน</h2>
 
-    <div class="buttons">
-        <button onclick="goToPage(1)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(3)">ถัดไป ➡</button>
-    </div>
+<div class="about-box">
 
-</section>
+<strong>ชื่อ :</strong>
+รณภพ โพธิ์รักษา
 
+<br>
 
-<!-- ===== หน้า 3 ===== -->
-<section class="page" id="page3">
+<strong>ระดับการศึกษา :</strong>
+มัธยมศึกษาตอนปลาย
 
-    <h2>📸 ผลงานที่ 3</h2>
+<br>
 
-    <div class="photo-box">
-        <img src="image3.jpg">
-    </div>
+<strong>ความสนใจ :</strong>
+ดนตรีและการสร้างสรรค์ผลงาน
 
-    <p>รายละเอียดผลงานที่ 3</p>
+<br>
 
-    <div class="buttons">
-        <button onclick="goToPage(2)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(4)">ถัดไป ➡</button>
-    </div>
+<strong>ความสามารถ :</strong>
+การบรรเลงดนตรีและการทำกิจกรรมต่าง ๆ
+
+<br>
+
+<strong>เป้าหมาย :</strong>
+มุ่งมั่นพัฒนาความสามารถของตนเอง
+และศึกษาต่อในระดับมหาวิทยาลัย
+
+</div>
 
 </section>
 
 
-<!-- ===== หน้า 4 ===== -->
-<section class="page" id="page4">
 
-    <h2>📸 ผลงานที่ 4</h2>
+<!-- =========================
+     ผลงาน
+========================= -->
 
-    <div class="photo-box">
-        <img src="image4.jpg">
-    </div>
+<section id="work">
 
-    <p>รายละเอียดผลงานที่ 4</p>
+<h2>📸 ผลงานของฉัน</h2>
 
-    <div class="buttons">
-        <button onclick="goToPage(3)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(5)">ถัดไป ➡</button>
-    </div>
-
-</section>
+<p class="subtitle">
+คลิกที่รูปเพื่อดูภาพขนาดใหญ่
+</p>
 
 
-<!-- ===== หน้า 5 ===== -->
-<section class="page" id="page5">
-
-    <h2>📸 ผลงานที่ 5</h2>
-
-    <div class="photo-box">
-        <img src="image5.jpg">
-    </div>
-
-    <p>รายละเอียดผลงานที่ 5</p>
-
-    <div class="buttons">
-        <button onclick="goToPage(4)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(6)">ถัดไป ➡</button>
-    </div>
-
-</section>
+<div class="gallery">
 
 
-<!-- ===== หน้า 6 ===== -->
-<section class="page" id="page6">
-
-    <h2>📸 ผลงานที่ 6</h2>
-
-    <div class="photo-box">
-        <img src="image6.jpg">
-    </div>
-
-    <p>รายละเอียดผลงานที่ 6</p>
-
-    <div class="buttons">
-        <button onclick="goToPage(5)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(7)">ถัดไป ➡</button>
-    </div>
-
-</section>
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0001.jpg"
+onclick="openImage(0)">
+</div>
 
 
-<!-- ===== หน้า 7 ===== -->
-<section class="page" id="page7">
-
-    <h2>📸 ผลงานที่ 7</h2>
-
-    <div class="photo-box">
-        <img src="image7.jpg">
-    </div>
-
-    <p>รายละเอียดผลงานที่ 7</p>
-
-    <div class="buttons">
-        <button onclick="goToPage(6)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(8)">ถัดไป ➡</button>
-    </div>
-
-</section>
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0002.jpg"
+onclick="openImage(1)">
+</div>
 
 
-<!-- ===== หน้า 8 ===== -->
-<section class="page" id="page8">
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0003.jpg"
+onclick="openImage(2)">
+</div>
 
-    <h2>📸 ผลงานที่ 8</h2>
 
-    <div class="photo-box">
-        <img src="image8.jpg">
-    </div>
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0004.jpg"
+onclick="openImage(3)">
+</div>
 
-    <p>รายละเอียดผลงานที่ 8</p>
 
-    <div class="buttons">
-        <button onclick="goToPage(7)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(9)">ถัดไป ➡</button>
-    </div>
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0005.jpg"
+onclick="openImage(4)">
+</div>
+
+
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0006.jpg"
+onclick="openImage(5)">
+</div>
+
+
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0007.jpg"
+onclick="openImage(6)">
+</div>
+
+
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0008.jpg"
+onclick="openImage(7)">
+</div>
+
+
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0009.jpg"
+onclick="openImage(8)">
+</div>
+
+
+<div class="card">
+<img src="SWU_10090110702501A-0-D0101_1749800445651_page-0010.jpg"
+onclick="openImage(9)">
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- ===== หน้า 9 ===== -->
-<section class="page" id="page9">
 
-    <h2>📸 ผลงานที่ 9</h2>
+<!-- =========================
+     ติดต่อ
+========================= -->
 
-    <div class="photo-box">
-        <img src="image9.jpg">
-    </div>
+<section id="contact">
 
-    <p>รายละเอียดผลงานที่ 9</p>
+<h2>📩 ติดต่อ</h2>
 
-    <div class="buttons">
-        <button onclick="goToPage(8)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(10)">ถัดไป ➡</button>
-    </div>
+<div class="contact-box">
 
-</section>
+<p>
+<span>ชื่อ :</span>
+รณภพ โพธิ์รักษา
+</p>
 
+<p>
+<span>Facebook :</span>
+ใส่ชื่อ Facebook
+</p>
 
-<!-- ===== หน้า 10 ===== -->
-<section class="page" id="page10">
+<p>
+<span>Email :</span>
+ใส่อีเมลของคุณ
+</p>
 
-    <h2>📸 ผลงานที่ 10</h2>
-
-    <div class="photo-box">
-        <img src="image10.jpg">
-    </div>
-
-    <p>รายละเอียดผลงานที่ 10</p>
-
-    <div class="buttons">
-        <button onclick="goToPage(9)">⬅ ก่อนหน้า</button>
-        <button onclick="goToPage(0)">🏠 หน้าแรก</button>
-    </div>
+</div>
 
 </section>
 
 
-<!-- ===== ปุ่มกลับด้านบน ===== -->
-<button class="top-btn" onclick="goToPage(0)">
-    ↑
+
+<!-- =========================
+     Footer
+========================= -->
+
+<footer>
+
+© 2026 Blue Portfolio | Ronnaphop Phoraksa
+
+</footer>
+
+
+
+<!-- =========================
+     Lightbox
+========================= -->
+
+<div id="lightbox">
+
+<button class="close" onclick="closeImage()">
+×
 </button>
+
+<button class="slide-btn prev" onclick="prevImage()">
+❮
+</button>
+
+<img id="showImage">
+
+<button class="slide-btn next" onclick="nextImage()">
+❯
+</button>
+
+</div>
+
 
 
 <script>
 
-function goToPage(number){
+/* รายชื่อรูป 10 รูป */
 
-    const page = document.getElementById("page" + number);
+let images = [
 
-    if(page){
-        page.scrollIntoView({
-            behavior:"smooth"
-        });
-    }
+"SWU_10090110702501A-0-D0101_1749800445651_page-0001.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0002.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0003.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0004.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0005.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0006.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0007.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0008.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0009.jpg",
+
+"SWU_10090110702501A-0-D0101_1749800445651_page-0010.jpg"
+
+];
+
+
+let index = 0;
+
+
+/* เปิดรูป */
+
+function openImage(i){
+
+    index = i;
+
+    document.getElementById("showImage").src =
+    images[index];
+
+    document.getElementById("lightbox").style.display =
+    "flex";
 
 }
 
+
+/* รูปถัดไป */
+
+function nextImage(){
+
+    index++;
+
+    if(index >= images.length){
+        index = 0;
+    }
+
+    document.getElementById("showImage").src =
+    images[index];
+
+}
+
+
+/* รูปก่อนหน้า */
+
+function prevImage(){
+
+    index--;
+
+    if(index < 0){
+        index = images.length - 1;
+    }
+
+    document.getElementById("showImage").src =
+    images[index];
+
+}
+
+
+/* ปิดรูป */
+
+function closeImage(){
+
+    document.getElementById("lightbox").style.display =
+    "none";
+
+}
+
+
+/* คลิกพื้นหลังเพื่อปิด */
+
+document.getElementById("lightbox").onclick =
+function(e){
+
+    if(e.target === this){
+        closeImage();
+    }
+
+};
+
+
+/* กด ESC เพื่อปิด */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closeImage();
+    }
+
+});
+
+
+/* กดลูกศรบนคีย์บอร์ด */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "ArrowRight"){
+        nextImage();
+    }
+
+    if(e.key === "ArrowLeft"){
+        prevImage();
+    }
+
+});
+
 </script>
+
 
 </body>
 </html>
 ```
+
+
+
