@@ -1,1 +1,112 @@
+```css
+/* =========================
+   WORK - ผลงานเต็มพื้นที่
+========================= */
+
+.work{
+    background:#e9f9ff;
+    padding:110px 3%;
+}
+
+/* แกลเลอรี */
+.gallery{
+    width:100%;
+    max-width:1600px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+}
+
+/* การ์ดผลงาน */
+.work-card{
+    width:100%;
+    background:white;
+
+    border-radius:25px;
+    padding:12px;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,120,170,.1);
+
+    transition:.4s;
+}
+
+.work-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(0,120,170,.18);
+}
+
+/* รูปผลงาน */
+.work-card img{
+    width:100%;
+
+    height:auto;
+    min-height:500px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    display:block;
+
+    background:#f5fcff;
+}
+
+/* หมายเลขรูป */
+.number{
+    position:absolute;
+
+    top:25px;
+    left:25px;
+
+    background:#159fce;
+    color:white;
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(0,120,170,.3);
+
+    z-index:2;
+}
+
+
+/* =========================
+   หน้าจอเล็ก
+========================= */
+
+@media(max-width:800px){
+
+    .work{
+        padding:80px 15px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .work-card img{
+        min-height:0;
+        height:auto;
+    }
+
+}
+```
 
